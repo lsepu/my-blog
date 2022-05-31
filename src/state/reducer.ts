@@ -14,6 +14,16 @@ export type stateType = {
   posts:postType[],
 }
 
+export type knowledgeType = {
+  name: string,
+  experience: string
+}
+
+export type portfolioType = {
+  projectName: string,
+  description: string
+}
+
 export enum actionsEnum{
   toggle_log = 'TOGGLE_LOG',
   add_post = 'ADD_POST',
@@ -28,7 +38,7 @@ export type actionType = {
 } 
 
 
-export const reducer = (state:stateType, action:actionType):stateType | Error => {
+export const reducer = (state:stateType, action:actionType):stateType  => {
   switch(action.type){
     case actionsEnum.toggle_log:
       return state
@@ -41,6 +51,6 @@ export const reducer = (state:stateType, action:actionType):stateType | Error =>
     case actionsEnum.delete_comment:
       return state
     default:
-      return new Error("Any of the actions in the state manager were matched") 
+      throw new Error("Any of the actions in the state manager were matched") 
   }
 }
