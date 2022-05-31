@@ -37,3 +37,5 @@ const StoreProvider:React.FC<Props> = ({children}) => {
 }
 
 export default StoreProvider
+
+export {Store, initialState}
