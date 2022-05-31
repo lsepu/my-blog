@@ -27,11 +27,8 @@ export type actionType = {
   payload:any
 } 
 
-export interface reducerFunction {
-  (state:stateType, action:actionType):stateType | Error
-}
 
-export const reducer:reducerFunction = (state:stateType, action:actionType):stateType | Error => {
+export const reducer = (state:stateType, action:actionType):stateType | Error => {
   switch(action.type){
     case actionsEnum.toggle_log:
       return state
@@ -39,9 +36,9 @@ export const reducer:reducerFunction = (state:stateType, action:actionType):stat
       return state
     case actionsEnum.delete_post:
       return state
-    case actionsEnum.add_post:
+    case actionsEnum.add_comment:
       return state
-    case actionsEnum.delete_post:
+    case actionsEnum.delete_comment:
       return state
     default:
       return new Error("Any of the actions in the state manager were matched") 
